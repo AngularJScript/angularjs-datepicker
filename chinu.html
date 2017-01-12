@@ -14,46 +14,56 @@
         <div class="row-fluid" ng-controller="DemoController">
             <div class="span4"></div>
             <div class="span4">
-            <form name="orderForm" novalidate ng-submit="orderForm.$valid && submitForm()">
-                <div class="span12">
-                    <div>
-                        <h4>Default view</h4>
-                        <input type="datetime" class="form-control" name="created" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.created" readonly="" required="" />
-                        <div ng-show="orderForm.$submitted || orderForm.created.$touched">
-                            <span ng-if="orderForm.created.$error.required" style="color: red;">Current date required.</span>
+                <form name="orderForm" novalidate ng-submit="orderForm.$valid && submitForm()">
+                    <div class="span12">
+                        <div>
+                            <h4>Default view</h4>
+                            <input type="datetime" class="form-control" name="created" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.created" readonly="" required="" />
+                            <div ng-show="orderForm.$submitted || orderForm.created.$touched">
+                                <span ng-if="orderForm.created.$error.required" style="color: red;">Current date required.</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Empty view</h4>
+                            <input type="datetime" class="form-control" name="due_date" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.due_date" readonly="" required="" />
+                            <div ng-show="orderForm.$submitted || orderForm.due_date.$touched">
+                                <span ng-if="orderForm.due_date.$error.required" style="color: red;">Due date required.</span>
+                            </div>
+                        </div>
+                        <!--<div>
+                            <h4>Minimum date</h4>
+                            <input type="datetime" class="form-control" date-time ng-model="dates.minDate" id="pickerMinSelector" date-change="changeMinMax" max-date="maxDate" view="date" timezone="UTC" format="lll" auto-close="true" />
+                        </div>
+                        <div>
+                            <h4>Maximum date</h4>
+                            <input type="datetime" date-time ng-model="dates.maxDate" date-change="changeMinMax" min-date="minDate" view="date" timezone="UTC" format="lll" auto-close="true" />
+                        </div>
+                        <div>
+                            <h2>Range</h2>
+        
+                            <div date-range id="pickerRange" start="dates.minDate" end="dates.maxDate" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
+        
+                        </div>-->
+                    </div>
+                    <div class="">
+                        <div>
+                            <button type="submit" class="ladda-button ladda-button-demo btn btn-w-m btn-success">Submit</button>
                         </div>
                     </div>
-                    <div>
-                        <h4>Empty view</h4>
-                        <input type="datetime" class="form-control" name="due_date" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.due_date" readonly="" required="" />
-                        <div ng-show="orderForm.$submitted || orderForm.due_date.$touched">
-                            <span ng-if="orderForm.due_date.$error.required" style="color: red;">Due date required.</span>
-                        </div>
-                    </div>
-                    <!--<div>
-                        <h4>Minimum date</h4>
-                        <input type="datetime" class="form-control" date-time ng-model="dates.minDate" id="pickerMinSelector" date-change="changeMinMax" max-date="maxDate" view="date" timezone="UTC" format="lll" auto-close="true" />
-                    </div>
-                    <div>
-                        <h4>Maximum date</h4>
-                        <input type="datetime" date-time ng-model="dates.maxDate" date-change="changeMinMax" min-date="minDate" view="date" timezone="UTC" format="lll" auto-close="true" />
-                    </div>
-                    <div>
-                        <h2>Range</h2>
-    
-                        <div date-range id="pickerRange" start="dates.minDate" end="dates.maxDate" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
-    
-                    </div>-->
-                </div>
-                <div class="">
-                    <div>
-                        <button type="submit" class="ladda-button ladda-button-demo btn btn-w-m btn-success">Submit</button>
-                    </div>
-                </div>
-            </form>
-            <a href="index.html">Back</a>
+                </form>
+                <a href="index.html">Back</a>
             </div>
-            <div class="span4"></div>
+            <div class="span4">
+                <div>
+                    <h4>Always open div (date-picker directive)</h4>
+
+                    <div>
+                        <h5>Date</h5>
+                        <input date-time="" name="pickerMinDate" ng-model="dates.today" id="pickerMinDate" min-date="minDate" view="date" min-view="date" timezone="UTC" format="lll" class="ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-min">
+                        <div date-picker="dates.today" id="pickerMinDateDiv" min-date="minDate" view="date" min-view="date" timezone="UTC" watch-direct-changes="true"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
