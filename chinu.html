@@ -12,6 +12,8 @@
     </head>
     <body ng-app="sample">
         <div class="row-fluid" ng-controller="DemoController">
+            <div class="span4"></div>
+            <div class="span4">
             <form name="orderForm" novalidate ng-submit="orderForm.$valid && submitForm()">
                 <div class="span12">
                     <div>
@@ -50,6 +52,8 @@
                 </div>
             </form>
             <a href="./">Back</a>
+            </div>
+            <div class="span4"></div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
