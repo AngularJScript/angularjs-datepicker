@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Chinmay235 Custom DatePicker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet"	href="css/angular-datapicker.css"> 
+    </head>
+    <body ng-app="sample">
+        <div class="row-fluid" ng-controller="DemoController">
+            <form name="orderForm" novalidate ng-submit="orderForm.$valid && submitForm()">
+                <div class="span12">
+                    <div>
+                        <h4>Default view</h4>
+                        <input type="datetime" class="form-control" name="created" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.created" readonly="" required="" />
+                        <div ng-show="orderForm.$submitted || orderForm.created.$touched">
+                            <span ng-if="orderForm.created.$error.required" style="color: red;">Current date required.</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Empty view</h4>
+                        <input type="datetime" class="form-control" name="due_date" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.due_date" readonly="" required="" />
+                        <div ng-show="orderForm.$submitted || orderForm.due_date.$touched">
+                            <span ng-if="orderForm.due_date.$error.required" style="color: red;">Due date required.</span>
+                        </div>
+                    </div>
+                    <!--<div>
+                        <h4>Minimum date</h4>
+                        <input type="datetime" class="form-control" date-time ng-model="dates.minDate" id="pickerMinSelector" date-change="changeMinMax" max-date="maxDate" view="date" timezone="UTC" format="lll" auto-close="true" />
+                    </div>
+                    <div>
+                        <h4>Maximum date</h4>
+                        <input type="datetime" date-time ng-model="dates.maxDate" date-change="changeMinMax" min-date="minDate" view="date" timezone="UTC" format="lll" auto-close="true" />
+                    </div>
+                    <div>
+                        <h2>Range</h2>
+    
+                        <div date-range id="pickerRange" start="dates.minDate" end="dates.maxDate" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
+    
+                    </div>-->
+                </div>
+                <div class="">
+                    <div>
+                        <button type="submit" class="ladda-button ladda-button-demo btn btn-w-m btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <a href="./">Back</a>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.1/moment-timezone-with-data.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.min.js"></script>
+
+        <script src="js/datePicker.js"></script>
+        <script src="js/datePickerUtils.js"></script>
+        <!--<script src="https://rawgit.com/g00fy-/angular-datepicker/master/app/scripts/dateRange.js"></script>-->
+        <script src="js/input.js"></script>
+
+        <!--<script src="http://apps.deprigo.com/js/plugins/datapicker/angular-datepicker.js"></script>  
+        <script src="https://rawgit.com/g00fy-/angular-datepicker/master/app/scripts/datePickerUtils.js"></script>
+        <script src="https://rawgit.com/g00fy-/angular-datepicker/master/app/scripts/input.js"></script>-->
+        <script>
+            var demoApp = angular.module('sample', ['datePicker', 'ui.bootstrap']);
+            demoApp.controller('DemoController', function($scope, $filter) {
+                $scope.formData = {};
+                /*$scope.formData.created = new Date();*/
+                $scope.formData.created = $filter('date')(new Date());
+                $scope.formData.due_date = '';
+                $scope.submitForm = function() {
+                    console.log($scope.formData);
+                };
+            });
+        </script>
+    </body>
+</html>
