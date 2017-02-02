@@ -87,7 +87,7 @@
             demoApp.controller('DemoController', function($scope, $filter) {
                 $scope.formData = {};
                 /*$scope.formData.created = new Date();*/
-                $scope.formData.created = $filter('date')(new Date(), 'YYYY-MM-DD');
+                $scope.formData.created = $filter('date')(new Date());
                 $scope.formData.due_date = '';
                 $scope.submitForm = function() {
                     $scope.master = $scope.formData;
