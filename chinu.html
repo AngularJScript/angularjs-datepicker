@@ -50,6 +50,9 @@
                             <button type="submit" class="ladda-button ladda-button-demo btn btn-w-m btn-success">Submit</button>
                         </div>
                     </div>
+                    <div ng-if="master">
+                         {{master | json }}
+                    </div>
                 </form>
                 <a href="index.html">Back</a>
             </div>
@@ -86,7 +89,7 @@
                 $scope.formData.created = $filter('date')(new Date());
                 $scope.formData.due_date = '';
                 $scope.submitForm = function() {
-                    console.log($scope.formData);
+                    $scope.master = $scope.formData;
                 };
             });
             /*demoApp.config(function ($provide)
