@@ -90,6 +90,19 @@
                     console.log($scope.formData);
                 };
             });
+            /*demoApp.config(function ($provide)
+            {
+                $provide.decorator('mFormatFilter', function ()
+                {
+                    return function newFilter(m, format, tz)
+                    {
+                        if (!(moment.isMoment(m))) {
+                            return '';
+                        }
+                        return tz ? moment.tz(m, tz).format(format) : m.format(format);
+                    };
+                });
+            });*/
             
         </script>
     </body>
