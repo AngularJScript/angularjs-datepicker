@@ -88,8 +88,7 @@
             var demoApp = angular.module('sample', ['datePicker', 'ui.bootstrap']);
             demoApp.controller('DemoController', function($scope, $filter) {
                 $scope.changeDate = function (modelName, newDate) {
-                    console.log(modelName + ' has had a date change. New value is ' + newDate.format());
-                    $scope.callbackState = 'Callback: Fired';
+                    
                 }
                 
                 $scope.formData = {};
