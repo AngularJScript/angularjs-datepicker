@@ -93,7 +93,7 @@
                     maxDate: moment.tz('UTC').add(4, 'd').hour(12).startOf('h'), //12:00 UTC, in four days.
                 };
                 $scope.changeDate = function (modelName, newDate) {
-                    console.log(modelName + ' has had a date change. New value is ' + newDate);
+                    console.log(modelName + ' has had a date change. New value is ' + newDate.format());
                     $scope.callbackState = 'Callback: Fired';
                 }
                 
