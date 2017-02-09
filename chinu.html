@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <h4>Empty view</h4>
-                            <input type="datetime" class="form-control" name="due_date" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.due_date" readonly="" required="" date-change="changeDate" />
+                            <input type="datetime" class="form-control" name="due_date" date-time view="date" format="YYYY-MM-DD" auto-close="true" min-view="date" ng-model="formData.due_date" readonly="" required="" date-change="changeDueDate" />
                             <div ng-show="orderForm.$submitted || orderForm.due_date.$touched">
                                 <span ng-if="orderForm.due_date.$error.required" style="color: red;">Due date required.</span>
                             </div>
@@ -86,9 +86,9 @@
         <script>
             var demoApp = angular.module('sample', ['datePicker', 'ui.bootstrap']);
             demoApp.controller('DemoController', function($scope, $filter) {
-                $scope.changeDate = function (modelName, newDate) {
+                $scope.changeDueDate = function (modelName, newDate) {
                     console.log(modelName + ' has had a date change. New value is ' + newDate.format());
-                    $scope.callbackState = 'Callback: Fired';
+                    $scope.formData.due_date = newDate.format();
                 }
                 
                 $scope.formData = {};
